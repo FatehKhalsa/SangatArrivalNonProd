@@ -5,12 +5,58 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 8080;
 
+
+
 let User = require('./DataSchema/user_schema');
 
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/dsggs', { useNewUrlParser: true });
+const db = require("./DataSchema/index");
+const Role = db.role;
+
+db.mongoose.connect('mongodb://127.0.0.1:27017/dsggs',
+ { useNewUrlParser: true })
+ .then(() => {
+    console.log("Successfully connect to MongoDB.");
+    initial();
+  })
+  .catch(err => {
+    console.error("Connection error", err);
+    process.exit();
+  });
+
+function initial() {
+  Role.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new Role({
+        name: "user"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+        console.log("added 'user' to roles collection");
+      });
+      new Role({
+        name: "moderator"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+        console.log("added 'moderator' to roles collection");
+      });
+      new Role({
+        name: "admin"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+        console.log("added 'admin' to roles collection");
+      });
+    }
+  });
+}
+
 const connection = mongoose.connection;
 
 connection.once('open', function() {
@@ -20,6 +66,10 @@ connection.once('open', function() {
 
 
 const userRoutes = express.Router();
+
+
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
 
 
 //Getting all users

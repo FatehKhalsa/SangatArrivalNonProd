@@ -11,6 +11,9 @@ let User = new Schema({
     user_yearOfBirth:{
         type: Number
     },
+    user_gender:{
+        type: String
+    },
     user_city:{
         type: String
     },
