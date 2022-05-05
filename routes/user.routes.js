@@ -8,6 +8,7 @@ module.exports = function(app) {
     );
     next();
   });
+  app.get("/api/getAllUsers", [authJwt.verifyToken], controller.getAllUsers);
   app.get("/api/test/all", controller.allAccess);
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
   app.get(
