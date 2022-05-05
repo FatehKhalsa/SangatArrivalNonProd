@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 
 
@@ -15,8 +15,11 @@ app.use(bodyParser.json());
 const db = require("./DataSchema/index");
 const Role = db.role;
 
-db.mongoose.connect('mongodb://127.0.0.1:27017/dsggs',
- { useNewUrlParser: true })
+const url = "mongodb+srv://sangat:waheguru22@dssgs.ieddu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+//dsggs 
+db.mongoose.connect(url,
+ { useNewUrlParser: true, })
  .then(() => {
     console.log("Successfully connect to MongoDB.");
     initial();
