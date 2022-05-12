@@ -6,8 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build",
-    "install-client": "npm install",
-    "heroku-postbuild": "num run install-client && npm run build",
     "server": "nodemon server.js"
   },
   "keywords": [],
