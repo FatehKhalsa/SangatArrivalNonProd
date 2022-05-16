@@ -20,7 +20,7 @@ let Host = new Schema({
         Beds: Number,
         Slots: Number
     }],
-    Restrinctions: {
+    Restrictions: {
         type: String
     },
     ProvidingRide: {
