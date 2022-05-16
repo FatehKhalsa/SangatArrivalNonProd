@@ -28,6 +28,9 @@ let User = new Schema({
     },
     user_phoneNumber:{
         type: Number
+    },
+    user_hostedby:{
+        type: String
     }
 });
 
