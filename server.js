@@ -87,19 +87,6 @@ userRoutes.route('/allUsers').get(function(req, res){
     });
 });
 
-// Adding a user
-userRoutes.route('/addUser').post(function(req, res){
-    let user = new User(req.body);
-    // Need to handle duplicate insertions here
-    user.save().then(user=>{
-        res.status(200).json({
-            'User': 'User added successfully'});
-        })
-        .catch(err=>{
-            res.status(400).send('adding user failed');
-        });
-})
-
 // Updating a user
 
 userRoutes.route('/update/:id').post(function(req, res){

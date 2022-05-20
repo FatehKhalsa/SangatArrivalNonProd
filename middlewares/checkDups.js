@@ -1,6 +1,6 @@
 const db = require("../DataSchema/index");
 const Host = db.host;
-checkDuplicateHost = (req, res) => {
+checkDuplicateHost = (req, res, next) => {
   // Username
   console.log("Request", req.body);
   Host.findOne({
@@ -15,6 +15,7 @@ checkDuplicateHost = (req, res) => {
       res.status(400).send({ message: "Failed! Host is already in use!" });
       return;
     }
+    next();
   });
 };
 
