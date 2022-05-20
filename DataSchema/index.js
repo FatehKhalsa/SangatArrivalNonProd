@@ -5,5 +5,6 @@ db.mongoose = mongoose;
 db.userLogin = require("./user_login");
 db.role = require("./user_roles");
 db.user = require("./user_schema");
+db.host = require("./host_schema");
 db.ROLES = ["user", "admin", "moderator"];
 module.exports = db;

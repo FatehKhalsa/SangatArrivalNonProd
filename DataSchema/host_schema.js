@@ -5,27 +5,27 @@ let Host = new Schema({
     Host_Name: {
         type: String
     },
-    Host_Address : [{
+    Host_Address : {
         HouseNumber: Number,
         StreetName: String,
         City: String,
         State: String,
-        Country, String
-    }],
+        Country: String
+    },
     Host_Distance: {
         type: Number
     },
-    Host_Availability: [{
+    Host_Availability: {
         Rooms: Number,
         Beds: Number,
         Slots: Number
-    }],
+    },
     Restrictions: {
         type: String
     },
     ProvidingRide: {
-        type: Boolean
+        type: String
     }
 });
 
-module.exports = mongoose.model('Host', Host);    
+module.exports = mongoose.model('Host', Host);
