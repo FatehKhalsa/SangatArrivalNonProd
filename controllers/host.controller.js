@@ -8,7 +8,8 @@ exports.createHost = (req, res) => {
         Host_Distance: req.body.Host_Distance,
         Host_Availability: req.body.Host_Availability,
         Restrictions: req.body.Restrictions,
-        ProvidingRide: req.body.ProvidingRide
+        ProvidingRide: req.body.ProvidingRide,
+        Host_at_asthan: req.body.Host_at_asthan,
     });
 
     host.save((err, host) => {
