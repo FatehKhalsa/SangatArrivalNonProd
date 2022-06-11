@@ -25,6 +25,9 @@ let Host = new Schema({
     },
     ProvidingRide: {
         type: String
+    },
+    Host_at_asthan: {
+        type: String
     }
 });
 
