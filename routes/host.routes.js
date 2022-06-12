@@ -16,4 +16,6 @@ module.exports = function(app) {
     ],
     controller.createHost
   );
+  app.get("/api/getAllHosts", [authJwt.verifyToken], controller.getAllHosts);
+
 };

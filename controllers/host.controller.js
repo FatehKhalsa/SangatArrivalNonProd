@@ -22,3 +22,13 @@ exports.createHost = (req, res) => {
         }
     })
 }
+
+exports.getAllHosts = (req, res) => {
+    Host.find(function(err, hosts){
+      if(err){
+          console.log(err)
+      } else{
+          res.json(hosts);
+      }
+  });
+}

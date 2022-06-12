@@ -5,7 +5,7 @@ checkDuplicateHost = (req, res, next) => {
   console.log("Request", req.body);
   Host.findOne({
     Host_Name: req.body.Host_Name,
-    Host_Address: req.body.Host_Address
+    Host_at_asthan: req.body.Host_at_asthan
   }).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
