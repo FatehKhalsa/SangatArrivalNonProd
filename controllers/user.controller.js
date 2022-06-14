@@ -35,7 +35,12 @@ exports.allAccess = (req, res) => {
       user_allergy: req.body.user_allergy,
       user_hasAllergy: req.body.user_hasAllergy,
       user_phoneNumber: req.body.user_phoneNumber,
+      user_arrivingFlight: req.body.user_arrivingFlight,
+      user_arrivingAirport: req.body.user_arrivingAirport,
+      user_departingFlight: req.body.user_departingFlight,
+      user_departingAirport: req.user_departingAirport,
       user_hostedby: req.body.user_hostedby,
+      user_goingToAsthan: req.body.user_goingToAsthan,
     });
 
     user.save((err, user)=>{

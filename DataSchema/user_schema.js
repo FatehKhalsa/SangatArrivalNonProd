@@ -29,7 +29,22 @@ let User = new Schema({
     user_phoneNumber:{
         type: Number
     },
+    user_arrivingFlight:{
+        type: String
+    },
+    user_arrivingAirport:{
+        type: String
+    },
+    user_departingFlight:{
+        type: String
+    },
+    user_departingAirport: {
+        type: String
+    },
     user_hostedby:{
+        type: String
+    },
+    user_goingToAsthan: {
         type: String
     }
 });
