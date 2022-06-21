@@ -25,7 +25,7 @@ exports.allAccess = (req, res) => {
 }
 
 exports.getUsersNotAssignedToHost = (req, res) => {
-  User.find({ user_hostedby: '', user_goingToAsthan: req.body.asthan}, function(err, users){
+  User.find({ user_hostedby: '', user_goingToAsthan: req.query.asthan}, function(err, users){
     if(err){
       console.log(err)
     }
