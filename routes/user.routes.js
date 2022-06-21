@@ -12,6 +12,7 @@ module.exports = function(app) {
     "/api/user/create",
     [authJwt.verifyToken, checkDupsUser.checkDuplicateUser], controller.createUser)
   app.get("/api/getAllUsers", [authJwt.verifyToken], controller.getAllUsers);
+  app.get("/api/getAllUsersNotAssignedToHost", [authJwt.verifyToken], controller.getUsersNotAssignedToHost)
   app.get("/api/test/all", controller.allAccess);
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
   app.get(

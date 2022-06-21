@@ -24,6 +24,17 @@ exports.allAccess = (req, res) => {
   });
 }
 
+exports.getUsersNotAssignedToHost = (req, res) => {
+  User.find({ user_hostedby: '', user_goingToAsthan: req.body.asthan}, function(err, users){
+    if(err){
+      console.log(err)
+    }
+    else{
+      res.json(users);
+    }
+  })
+}
+
   exports.createUser = (req, res) => {
     const user = new User({
       user_firstName: req.body.user_firstName,
