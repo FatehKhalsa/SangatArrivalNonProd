@@ -35,6 +35,18 @@ exports.getUsersNotAssignedToHost = (req, res) => {
   })
 }
 
+// Get all sangat per asthan
+exports.getUsersPerAsthan = (req, res) =>{
+  User.find({user_goingToAsthan: req.query.asthan}, function(err, users){
+    if(err){
+      console.log(err)
+    }
+    else{
+      res.json(users)
+    };
+  })
+}
+
   exports.createUser = (req, res) => {
     const user = new User({
       user_firstName: req.body.user_firstName,
@@ -62,5 +74,29 @@ exports.getUsersNotAssignedToHost = (req, res) => {
       else{
         res.send({message: "User created"});
       }
+    })
+  }
+
+  // Update a user 
+  exports.updateUser = (req, res) => {
+      const filter = {user_firstName: req.body.user_firstName};
+      const update = { user_firstName: req.body.user_firstName,
+        user_lastName: req.body.user_lastName,
+        user_yearOfBirth: req.body.user_yearOfBirth,
+        user_gender: req.body.user_gender,
+        user_city: req.body.user_city,
+        user_country: req.body.user_country,
+        user_allergy: req.body.user_allergy,
+        user_hasAllergy: req.body.user_hasAllergy,
+        user_phoneNumber: req.body.user_phoneNumber,
+        user_arrivingFlight: req.body.user_arrivingFlight,
+        user_arrivingAirport: req.body.user_arrivingAirport,
+        user_departingFlight: req.body.user_departingFlight,
+        user_departingAirport: req.user_departingAirport,
+        user_hostedby: req.body.user_hostedby,
+        user_goingToAsthan: req.body.user_goingToAsthan};
+
+    User.findOneAndUpdate((filter, update)=>{
+
     })
   }
