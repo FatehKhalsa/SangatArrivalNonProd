@@ -67,6 +67,8 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_hostedby: req.body.user_hostedby,
       user_goingToAsthan: req.body.user_goingToAsthan,
       user_email: req.body.user_email,
+      user_comments: req.body.user_comments,
+      user_emergencyContact: req.body.user_emergencyContact,
     });
 
     user.save((err, user)=>{
