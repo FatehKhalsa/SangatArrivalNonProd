@@ -50,10 +50,12 @@ exports.getUsersPerAsthan = (req, res) =>{
   exports.createUser = (req, res) => {
     const user = new User({
       user_firstName: req.body.user_firstName,
+      user_middleName: req.body.user_middleName,
       user_lastName: req.body.user_lastName,
       user_yearOfBirth: req.body.user_yearOfBirth,
       user_gender: req.body.user_gender,
       user_city: req.body.user_city,
+      user_state: req.body.user_state,
       user_country: req.body.user_country,
       user_allergy: req.body.user_allergy,
       user_hasAllergy: req.body.user_hasAllergy,
@@ -64,6 +66,7 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_departingAirport: req.user_departingAirport,
       user_hostedby: req.body.user_hostedby,
       user_goingToAsthan: req.body.user_goingToAsthan,
+      user_email: req.body.user_email,
     });
 
     user.save((err, user)=>{

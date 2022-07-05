@@ -5,16 +5,22 @@ let User = new Schema({
     user_firstName:{
         type: String
     },
+    user_middleName:{
+        type: String
+    },
     user_lastName:{
         type: String
     },
     user_yearOfBirth:{
-        type: Number
+        type: String
     },
     user_gender:{
         type: String
     },
     user_city:{
+        type: String
+    },
+    user_state:{
         type: String
     },
     user_country:{
@@ -46,7 +52,10 @@ let User = new Schema({
     },
     user_goingToAsthan: {
         type: String
-    }
+    },
+    user_email:{
+        type: String
+    },
 });
 
 module.exports = mongoose.model('User', User);    
