@@ -56,6 +56,12 @@ let User = new Schema({
     user_email:{
         type: String
     },
+    user_comments: {
+        type: String
+    },
+    user_emergencyContact: {
+        type: String
+    },
 });
 
 module.exports = mongoose.model('User', User);    
