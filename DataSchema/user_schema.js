@@ -62,6 +62,9 @@ let User = new Schema({
     user_emergencyContact: {
         type: String
     },
+    user_age: {
+        type: Number
+    },
 });
 
 module.exports = mongoose.model('User', User);    

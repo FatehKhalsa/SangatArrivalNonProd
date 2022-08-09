@@ -69,6 +69,7 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_email: req.body.user_email,
       user_comments: req.body.user_comments,
       user_emergencyContact: req.body.user_emergencyContact,
+      user_age: req.body.user_age,
     });
 
     user.save((err, user)=>{
