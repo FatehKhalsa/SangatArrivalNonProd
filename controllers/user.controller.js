@@ -1,3 +1,5 @@
+const calculateAge = require("../middlewares/convertDateToAge");
+
 const db = require("../DataSchema/index");
 const User = db.user;
 
@@ -48,11 +50,13 @@ exports.getUsersPerAsthan = (req, res) =>{
 }
 
   exports.createUser = (req, res) => {
+    const age = calculateAge(req.body.user_yearOfBirth);
+
     const user = new User({
       user_firstName: req.body.user_firstName,
       user_middleName: req.body.user_middleName,
       user_lastName: req.body.user_lastName,
-      user_yearOfBirth: req.body.user_yearOfBirth,
+      user_yearOfBirth: age,
       user_gender: req.body.user_gender,
       user_city: req.body.user_city,
       user_state: req.body.user_state,
