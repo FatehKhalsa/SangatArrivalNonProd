@@ -75,6 +75,7 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_comments: req.body.user_comments,
       user_emergencyContact: req.body.user_emergencyContact,
       user_age: req.body.user_age,
+      user_ride_from_airport: req.body.user_ride_from_airport,
     });
 
     user.save((err, user)=>{

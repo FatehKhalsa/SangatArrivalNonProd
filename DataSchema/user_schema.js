@@ -77,6 +77,9 @@ let User = new Schema({
     user_age: {
         type: Number
     },
+    user_ride_from_airport: {
+        type: Boolean
+    }
 });
 
 module.exports = mongoose.model('User', User);    
