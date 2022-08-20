@@ -47,6 +47,9 @@ let User = new Schema({
     user_arrivingFlightDate:{
         type: String
     },
+    user_arrivingFlightTime:{
+        type: String
+    },
     user_departingFlightNumber:{
         type: String
     },
@@ -57,6 +60,9 @@ let User = new Schema({
         type: String
     },
     user_departingFlightDate:{
+        type: String
+    },
+    user_departingFlightTime:{
         type: String
     },
     user_hostedby:{
