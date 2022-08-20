@@ -70,7 +70,7 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_departingFlightName: req.body.user_departingFlightName,
       user_departingFlightAirport: req.body.user_departingFlightAirport,
       user_departingFlightDate: req.body.user_departingFlightDate,
-      user_departingFlightTime: req.body._user_departingFlightTime,
+      user_departingFlightTime: req.body.user_departingFlightTime,
       user_hostedby: req.body.user_hostedby,
       user_goingToAsthan: req.body.user_goingToAsthan,
       user_email: req.body.user_email,
