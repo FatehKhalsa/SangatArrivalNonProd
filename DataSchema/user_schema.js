@@ -86,6 +86,6 @@ let User = new Schema({
     user_ride_from_airport: {
         type: Boolean
     }
-});
+},  {timestamps: true} );
 
 module.exports = mongoose.model('User', User);    

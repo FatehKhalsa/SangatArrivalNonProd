@@ -29,6 +29,6 @@ let Host = new Schema({
     Host_at_asthan: {
         type: String
     }
-});
+},{timestamps: true});
 
 module.exports = mongoose.model('Host', Host);
