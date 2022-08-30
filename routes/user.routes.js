@@ -11,6 +11,9 @@ module.exports = function(app) {
   app.post(
     "/api/user/create",
     [authJwt.verifyToken, checkDupsUser.checkDuplicateUser], controller.createUser)
+    app.put(
+      "/api/user/update",
+      [authJwt.verifyToken], controller.updateUser)
   app.get("/api/getAllUsers", [authJwt.verifyToken], controller.getAllUsers);
   app.get("/api/getAllUsersNotAssignedToHost", [authJwt.verifyToken], controller.getUsersNotAssignedToHost)
   app.get("/api/user/getAllUsersPerAsthan",[authJwt.verifyToken], controller.getUsersPerAsthan)
