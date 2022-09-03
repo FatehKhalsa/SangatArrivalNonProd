@@ -17,6 +17,7 @@ module.exports = function(app) {
   app.get("/api/getAllUsers", [authJwt.verifyToken], controller.getAllUsers);
   app.get("/api/getAllUsersNotAssignedToHost", [authJwt.verifyToken], controller.getUsersNotAssignedToHost)
   app.get("/api/user/getAllUsersPerAsthan",[authJwt.verifyToken], controller.getUsersPerAsthan)
+  app.get("/api/findTravelInfo", [authJwt.verifyToken], controller.findTravelInfo)
   app.get("/api/test/all", controller.allAccess);
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
   app.get(
