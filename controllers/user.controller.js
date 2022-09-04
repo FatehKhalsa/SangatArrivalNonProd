@@ -139,7 +139,6 @@ exports.getUsersPerAsthan = (req, res) =>{
   // Find travel info for user
 
   exports.findTravelInfo = (req, res) =>{
-    console.log("Request", req)
     User.findOne({user_firstName: req.body.user_firstName, user_lastName: req.body.user_lastName, user_yearOfBirth: req.body.user_yearOfBirth }, function (err, info) {
       if (err){
           console.log(err)
