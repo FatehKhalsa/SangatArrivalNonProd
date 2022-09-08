@@ -25,6 +25,7 @@ exports.allAccess = (req, res) => {
 }
 
 exports.getUsersNotAssignedToHost = (req, res) => {
+  console.log("Request", req)
   User.find({ user_hostedby: '', user_goingToAsthan: req.query.asthan}, function(err, users){
     if(err){
       console.log(err)
@@ -78,6 +79,7 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_emergencyContact: req.body.user_emergencyContact,
       user_age: req.body.user_age,
       user_ride_from_airport: req.body.user_ride_from_airport,
+      user_family_identified: req.body.user_family_identified
     });
 
     user.save((err, user)=>{
@@ -122,7 +124,9 @@ exports.getUsersPerAsthan = (req, res) =>{
         user_comments: req.body.user_comments,
         user_emergencyContact: req.body.user_emergencyContact,
         user_age: req.body.user_age,
-        user_ride_from_airport: req.body.user_ride_from_airport}
+        user_ride_from_airport: req.body.user_ride_from_airport,
+        user_family_identified: req.body.user_family_identified
+      }
 
     User.findOneAndUpdate(filter, update, null, function(err, user){
       if(err){
@@ -139,6 +143,7 @@ exports.getUsersPerAsthan = (req, res) =>{
   // Find travel info for user
 
   exports.findTravelInfo = (req, res) =>{
+    console.log("Request", req)
     User.findOne({user_firstName: req.query.user_firstName, user_lastName: req.query.user_lastName, user_yearOfBirth: req.query.user_yearOfBirth }, function (err, info) {
       if (err){
           console.log(err)

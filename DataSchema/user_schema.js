@@ -85,7 +85,10 @@ let User = new Schema({
     },
     user_ride_from_airport: {
         type: Boolean
-    }
+    },
+    user_family_identified: {
+        type: String
+    },
 },  {timestamps: true} );
 
 module.exports = mongoose.model('User', User);    
