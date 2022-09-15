@@ -84,7 +84,10 @@ let User = new Schema({
         type: Number
     },
     user_ride_from_airport: {
-        type: Boolean
+        type: String
+    },
+    user_ride_to_airport: {
+        type: String
     },
     user_family_identified: {
         type: String

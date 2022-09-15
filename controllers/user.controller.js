@@ -79,6 +79,7 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_emergencyContact: req.body.user_emergencyContact,
       user_age: req.body.user_age,
       user_ride_from_airport: req.body.user_ride_from_airport,
+      user_ride_to_airport: req.body.user_ride_to_airport,
       user_family_identified: req.body.user_family_identified
     });
 
@@ -125,6 +126,7 @@ exports.getUsersPerAsthan = (req, res) =>{
         user_emergencyContact: req.body.user_emergencyContact,
         user_age: req.body.user_age,
         user_ride_from_airport: req.body.user_ride_from_airport,
+        user_ride_to_airport: req.body.user_ride_to_airport,
         user_family_identified: req.body.user_family_identified
       }
 
