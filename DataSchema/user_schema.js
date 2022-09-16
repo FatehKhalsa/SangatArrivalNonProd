@@ -26,6 +26,9 @@ let User = new Schema({
     user_country:{
         type: String
     },
+    user_otherCountry:{
+        type: String
+    },
     user_allergy:{
         type: String
     },
