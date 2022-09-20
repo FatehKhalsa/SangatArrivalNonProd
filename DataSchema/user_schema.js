@@ -95,6 +95,9 @@ let User = new Schema({
     user_family_identified: {
         type: String
     },
+    user_last_updated_by: {
+        type: String
+    }
 },  {timestamps: true} );
 
 module.exports = mongoose.model('User', User);    

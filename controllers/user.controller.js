@@ -81,7 +81,8 @@ exports.getUsersPerAsthan = (req, res) =>{
       user_age: req.body.user_age,
       user_ride_from_airport: req.body.user_ride_from_airport,
       user_ride_to_airport: req.body.user_ride_to_airport,
-      user_family_identified: req.body.user_family_identified
+      user_family_identified: req.body.user_family_identified,
+      user_last_updated_by: req.body.user_last_updated_by,
     });
 
     user.save((err, user)=>{
@@ -129,7 +130,8 @@ exports.getUsersPerAsthan = (req, res) =>{
         user_age: req.body.user_age,
         user_ride_from_airport: req.body.user_ride_from_airport,
         user_ride_to_airport: req.body.user_ride_to_airport,
-        user_family_identified: req.body.user_family_identified
+        user_family_identified: req.body.user_family_identified,
+        user_last_updated_by: req.body.user_last_updated_by,
       }
 
     User.findOneAndUpdate(filter, update, null, function(err, user){
