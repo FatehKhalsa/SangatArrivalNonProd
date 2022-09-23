@@ -91,7 +91,7 @@ exports.getUsersPerAsthan = (req, res) =>{
         return;
       }
       else{
-        res.send({message: "User created"});
+        res.send({message: "User created"}, user);
       }
     })
   }
