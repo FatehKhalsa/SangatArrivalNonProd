@@ -91,7 +91,7 @@ exports.getUsersPerAsthan = (req, res) =>{
         return;
       }
       else{
-        res.send({message: "User created"});
+        res.send(user);
       }
     })
   }
@@ -134,13 +134,13 @@ exports.getUsersPerAsthan = (req, res) =>{
         user_last_updated_by: req.body.user_last_updated_by,
       }
 
-    User.findOneAndUpdate(filter, update, null, function(err, user){
+    User.findOneAndUpdate(filter, update, {new: true}, function(err, user){
       if(err){
         console.log(err);
         return;
       }
       else{
-        res.send({message: "User Updated"});
+        res.send(user);
       }
     })
   }
