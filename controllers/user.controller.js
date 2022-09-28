@@ -98,7 +98,7 @@ exports.getUsersPerAsthan = (req, res) =>{
 
   // Update a user 
   exports.updateUser = (req, res) => {
-      const filter = {user_firstName: req.body.user_firstName};
+      const filter = {_id: req.body._id};
       const update = { 
         user_firstName: req.body.user_firstName,
         user_middleName: req.body.user_middleName,
@@ -137,6 +137,7 @@ exports.getUsersPerAsthan = (req, res) =>{
     User.findOneAndUpdate(filter, update, {new: true}, function(err, user){
       if(err){
         console.log(err);
+        req.status(500).send({message: err});
         return;
       }
       else{
