@@ -99,7 +99,7 @@ exports.getArrivalReportUsers = (req, res) => {
 });
 }
 
-exports.getPendingUsers = (res) => {
+exports.getPendingUsers = (req, res) => {
   User.find({user_pending: true}, function(err, users){
     console.log("Inside Pending Call", users)
     if(err){
