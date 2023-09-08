@@ -16,6 +16,8 @@ module.exports = function(app) {
       [authJwt.verifyToken], controller.updateUser)
   app.get("/api/deleteUsersFlightInfo", [authJwt.verifyToken], controller.deleteFlightInfo);
   app.get("/api/getAllUsers", [authJwt.verifyToken], controller.getAllUsers);
+  app.get("/api/getPendingUsers", [authJwt.verifyToken], controller.getPendingUsers);
+  app.get("/api/getUsersWithFlightInfo", [authJwt.verifyToken], controller.getArrivalReportUsers);
   app.get("/api/getAllUsersNotAssignedToHost", [authJwt.verifyToken], controller.getUsersNotAssignedToHost)
   app.get("/api/user/getAllUsersPerAsthan",[authJwt.verifyToken], controller.getUsersPerAsthan)
   app.get("/api/findTravelInfo", controller.findTravelInfo)

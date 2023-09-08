@@ -34,11 +34,9 @@ exports.deleteFlightInfo = (req, res) =>{
         users.push(res.json(users));
     }
 
-    console.log("Users", users[0]);
 
     if(users.length>0){
       users.forEach(user=>{
-        console.log("User", user)
         const filter = {_id: user._id};
         const update = { 
           user_firstName: user.user_firstName,
@@ -73,6 +71,7 @@ exports.deleteFlightInfo = (req, res) =>{
           user_ride_to_airport: null,
           user_family_identified: user.user_family_identified,
           user_last_updated_by: user.user_last_updated_by,
+          user_pending: false,
         }
 
   
@@ -88,6 +87,28 @@ exports.deleteFlightInfo = (req, res) =>{
     }
     console.log("Flight information deleted");
 });
+}
+
+exports.getArrivalReportUsers = (req, res) => {
+  User.find({ user_arrivingFlightDate: { $nin: [ null, "" ] } }, function(err, users){
+    if(err){
+        console.log(err)
+    } else{
+        res.json(users);
+    }
+});
+}
+
+exports.getPendingUsers = (res) => {
+  User.find({user_pending: true}, function(err, users){
+    console.log("Inside Pending Call", users)
+    if(err){
+      console.log(err)
+    }
+    else{
+      res.json(users)
+    }
+  })
 }
 
 exports.getUsersNotAssignedToHost = (req, res) => {

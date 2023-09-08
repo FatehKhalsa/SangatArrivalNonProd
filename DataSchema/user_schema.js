@@ -97,6 +97,9 @@ let User = new Schema({
     },
     user_last_updated_by: {
         type: String
+    },
+    user_pending:{
+        type: Boolean
     }
 },  {timestamps: true} );
 
