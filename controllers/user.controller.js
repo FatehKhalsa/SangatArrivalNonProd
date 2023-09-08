@@ -24,6 +24,72 @@ exports.allAccess = (req, res) => {
   });
 }
 
+exports.deleteFlightInfo = (req, res) =>{
+  let users = [];
+
+  User.find(function(err, users){
+    if(err){
+        console.log(err)
+    } else{
+        users.push(res.json(users));
+    }
+
+    console.log("Users", users[0]);
+
+    if(users.length>0){
+      users.forEach(user=>{
+        console.log("User", user)
+        const filter = {_id: user._id};
+        const update = { 
+          user_firstName: user.user_firstName,
+          user_middleName: user.user_middleName,
+          user_lastName: user.user_lastName,
+          user_yearOfBirth: user.user_yearOfBirth,
+          user_gender: user.user_gender,
+          user_city: user.user_city,
+          user_state: user.user_state,
+          user_country: user.user_country,
+          user_otherCountry: user.user_otherCountry,
+          user_allergy: user.user_allergy,
+          user_hasAllergy: user.user_hasAllergy,
+          user_phoneNumber: user.user_phoneNumber,
+          user_arrivingFlightNumber: null,
+          user_arrivingFlightName: null,
+          user_arrivingFlightAirport: null,
+          user_arrivingFlightDate: null,
+          user_arrivingFlightTime: null,
+          user_departingFlightNumber: null,
+          user_departingFlightName: null,
+          user_departingFlightAirport: null,
+          user_departingFlightDate: null,
+          user_departingFlightTime: null,
+          user_hostedby: user.user_hostedby,
+          user_goingToAsthan: user.user_goingToAsthan,
+          user_email: user.user_email,
+          user_comments: user.user_comments,
+          user_emergencyContact: user.user_emergencyContact,
+          user_age: user.user_age,
+          user_ride_from_airport: null,
+          user_ride_to_airport: null,
+          user_family_identified: user.user_family_identified,
+          user_last_updated_by: user.user_last_updated_by,
+        }
+
+  
+      User.findOneAndUpdate(filter, update, {new: true}, function(err, user){
+        if(err){
+          console.log(err);
+          req.status(500).send({message: err});
+          return;
+        }
+      })
+
+      })
+    }
+    console.log("Flight information deleted");
+});
+}
+
 exports.getUsersNotAssignedToHost = (req, res) => {
   console.log("Request", req)
   User.find({ user_hostedby: '', user_goingToAsthan: req.query.asthan}, function(err, users){
