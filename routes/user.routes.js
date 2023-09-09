@@ -11,10 +11,10 @@ module.exports = function(app) {
   });
   app.get("/api/getPendingUsers", [authJwt.verifyToken], pendingController.getAllUsers);
   app.post(
-    "/api/user/create",
+    "/api/pendingUser/create",
     [checkDupsUser.checkDuplicateUser], pendingController.createUser)
     app.put(
-      "/api/user/update",
+      "/api/pendingUser/update",
        pendingController.updateUser)
 
 

@@ -16,7 +16,7 @@ exports.getAllUsers = (req, res) => {
 
   exports.createUser = (req, res) => {
 
-    const user = new User({
+    const user = new UserPending({
       user_firstName: req.body.user_firstName,
       user_middleName: req.body.user_middleName,
       user_lastName: req.body.user_lastName,
