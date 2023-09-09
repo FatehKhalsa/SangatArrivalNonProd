@@ -51,7 +51,7 @@ exports.getAllUsers = (req, res) => {
       user_last_updated_by: req.body.user_last_updated_by,
     });
 
-    UserPending.save((err, user)=>{
+    user.save((err, user)=>{
       if(err){
         req.status(500).send({message: err});
         return;

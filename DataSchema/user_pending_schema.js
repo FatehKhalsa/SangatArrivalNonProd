@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let User = new Schema({
+let UserPending = new Schema({
     user_firstName:{
         type: String
     },
@@ -100,4 +100,4 @@ let User = new Schema({
     },
 },  {timestamps: true} );
 
-module.exports = mongoose.model('User', User);    
+module.exports = mongoose.model('UserPending', UserPending);    
