@@ -1,5 +1,6 @@
 const { authJwt, checkDupsUser } = require("../middlewares");
 const controller = require("../controllers/user.controller");
+const pendingController = require("../controllers/user_pending.controller");
 module.exports = function(app) {
   app.use(function(req, res, next) {
     res.header(
@@ -8,6 +9,15 @@ module.exports = function(app) {
     );
     next();
   });
+  app.get("/api/getPendingUsers", [authJwt.verifyToken], pendingController.getAllUsers);
+  app.post(
+    "/api/user/create",
+    [checkDupsUser.checkDuplicateUser], pendingController.createUser)
+    app.put(
+      "/api/user/update",
+       pendingController.updateUser)
+
+
   app.post(
     "/api/user/create",
     [authJwt.verifyToken, checkDupsUser.checkDuplicateUser], controller.createUser)
