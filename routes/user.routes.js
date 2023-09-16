@@ -13,8 +13,7 @@ module.exports = function (app) {
   app.delete("/api/deletePendingUser", pendingController.deleteUser);
   app.post("/api/checkPendingMerge", controller.checkDuplicateUser);
   app.post(
-    "/api/pendingUser/create",
-    [checkDupsUser.checkDuplicateUser], pendingController.createUser)
+    "/api/pendingUser/create", pendingController.createUser)
   app.put(
     "/api/pendingUser/update",
     pendingController.updateUser)
