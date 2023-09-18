@@ -37,7 +37,7 @@ exports.checkDuplicateUser = (req, res) => {
       return;
     }
     if (user) {
-      res.status(200).send({ message: "User Existing" });
+      res.status(200).send({ message: "User Existing", id: user._id});
       return;
     }
     return res.status(200).send({ message: "User not Found" });
