@@ -258,8 +258,8 @@ exports.updateUser = (req, res) => {
 // Find travel info for user
 
 exports.findTravelInfo = (req, res) => {
-  console.log("Request", req)
-  User.findOne({ user_firstName: req.query.user_firstName, user_lastName: req.query.user_lastName, user_yearOfBirth: req.query.user_yearOfBirth }, function (err, info) {
+  console.log("Request", req.query.user_firstName, req.query.user_lastName, req.query.user_phoneNumber)
+  User.findOne({ user_firstName: req.query.user_firstName, user_lastName: req.query.user_lastName, user_phoneNumber: req.query.user_phoneNumber }, function (err, info) {
     if (err) {
       console.log(err)
     }
