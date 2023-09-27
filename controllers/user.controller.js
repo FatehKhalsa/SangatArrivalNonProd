@@ -30,7 +30,7 @@ exports.checkDuplicateUser = (req, res) => {
   User.findOne({
     user_firstName: req.body.user_firstName,
     user_lastName: req.body.user_lastName,
-    user_yearOfBirth: req.body.user_yearOfBirth,
+    user_phoneNumber: req.body.user_phoneNumber,
   }).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
