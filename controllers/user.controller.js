@@ -45,6 +45,24 @@ exports.checkDuplicateUser = (req, res) => {
 };
 
 
+
+
+exports.deleteUser = (req, res) => {
+
+      User.deleteOne({ _id: req.body._id}, function(err,user){
+          if(err){
+              console.log(err)
+              req.status(500).send({ message: err });
+              return;
+          } 
+          else{
+              res.json("Removed User")
+          }
+      })
+
+}
+
+
 exports.deleteFlightInfo = (req, res) => {
   let users = [];
 
