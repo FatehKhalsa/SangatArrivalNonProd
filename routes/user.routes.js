@@ -35,6 +35,7 @@ module.exports = function (app) {
   app.get("/api/findTravelInfo", controller.findTravelInfo)
   app.get("/api/test/all", controller.allAccess);
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
+  app.get("/api/getMissingSangat", [authJwt.verifyToken], controller.getMissingSangat);
   app.get(
     "/api/test/mod",
     [authJwt.verifyToken, authJwt.isModerator],

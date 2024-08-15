@@ -24,8 +24,25 @@ exports.getAllUsers = (req, res) => {
   });
 }
 
+exports.getMissingSangat = (req, res) =>{
+  User.find({$and: [
+    {"timestamp":{$gte: "2023-09-03T03:32:10.780+00:00", $lt: "2023-12-03T03:32:10.780+00:00"}},
+    {user_arrivingFlightName:""}, {user_ride_from_airport: null}]}, (err, response)=>{
+    if(err){
+      console.log(err)
+    }
+    else{
+      console.log(response);
+      return res.json(response);
+    }
+  })
+
+
+}
+
 
 exports.checkDuplicateUser = (req, res) => {
+  console.log("HERE")
   // Username
   User.findOne({
     user_firstName: req.body.user_firstName,
